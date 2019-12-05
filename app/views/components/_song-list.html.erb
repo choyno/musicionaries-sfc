@@ -1,10 +1,10 @@
 <div class="song-list">
   <div class="song-list__tag">
-    <% 20.times do |i| %>
+    <% song_list_sample.each do |item| %>
       <%= link_to "#", class: "song-item__tag white" do %>
         <div class="song-item__tag-content black-text">
           <div class="song-item__tag-color js-color"></div>
-          John<%= i + 100 %> Doe
+          <%= item["name"] %>
         </div>
       <% end %>
     <% end %>

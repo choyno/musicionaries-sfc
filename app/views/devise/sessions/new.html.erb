@@ -1,0 +1,26 @@
+<div class="row devise">
+  <div class="col s12 m6 offset-m3">
+    <h4 class="light center devise-title">Sign In</h4>
+    <div class="card z-depth-0">
+      <div class="card-content">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "devise-form") do |f| %>
+          <div class="input-field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.label :email %>
+          </div>
+
+          <div class="input-field">
+            <%= f.password_field :password, autocomplete: "current-password" %>
+            <%= f.label :password %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign in", class: "btn blue z-depth-0" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

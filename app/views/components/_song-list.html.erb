@@ -1,0 +1,15 @@
+<div class="song-list">
+  <div class="song-list__tag">
+    <% 20.times do |i| %>
+      <%= link_to "#", class: "song-item__tag white" do %>
+        <div class="song-item__tag-content black-text">
+          <div class="song-item__tag-color js-color"></div>
+          John<%= i + 100 %> Doe
+        </div>
+      <% end %>
+    <% end %>
+    <div class="song-list__more">
+      <%= link_to "See More...", "#", class: "grey-text" %>
+    </div>
+  </div>
+</div>

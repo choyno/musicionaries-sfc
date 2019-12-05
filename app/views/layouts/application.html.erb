@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Musicionary</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %> grey lighten-5">
+    <%= render "components/navbar" %>
+    <main class="container">
+      <%= yield %>
+    </main>
+    <%= render "components/footer" %>
+  </body>
+</html>

@@ -1,15 +1,17 @@
 <% provide(:title, 'Songs') %>
 
-<div class="library">
-  <div class="library-list">
-    <% @songs.each do |song| %>
-      <%= link_to song, class: "library-item white" do %>
-        <div class="library-item__content black-text">
-          <div class="library-item__content-color js-color"></div>
-          <%= song.title %>
-          <p class="library-item__content-editor grey-text"><%= song.artist %></p>
-        </div>
+<% if @songs %>
+  <div class="library">
+    <div class="library-list">
+      <% @songs.each do |song| %>
+        <%= link_to song, class: "library-item white" do %>
+          <div class="library-item__content black-text">
+            <div class="library-item__content-color js-color"></div>
+            <%= song.title %>
+            <p class="library-item__content-editor grey-text"><%= song.artist %></p>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

@@ -1,17 +1,19 @@
-<div class="song-list">
-  <div class="song-list__tag">
-    <% @songs.each do |song| %>
-      <%= link_to song, class: "song-item__tag white" do %>
-        <div class="song-item__tag-content black-text">
-          <div class="song-item__tag-color js-color"></div>
-          <%= song.title %>
+<% if @songs %>
+  <div class="song-list">
+    <div class="song-list__tag">
+      <% @songs.each do |song| %>
+        <%= link_to song, class: "song-item__tag white" do %>
+          <div class="song-item__tag-content black-text">
+            <div class="song-item__tag-color js-color"></div>
+            <%= song.title %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if @songs.count >= 10 %>
+        <div class="song-list__more">
+          <%= link_to "See All...", songs_path , class: "grey-text" %>
         </div>
       <% end %>
-    <% end %>
-    <% if @songs.count >= 10 %>
-      <div class="song-list__more">
-        <%= link_to "See All...", songs_path , class: "grey-text" %>
-      </div>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

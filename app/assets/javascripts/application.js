@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require materialize
 //= require_tree .
-//= require components/song-list
+//= require tinymce
+//= require components/utils/randomColor

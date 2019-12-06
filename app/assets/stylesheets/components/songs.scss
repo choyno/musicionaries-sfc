@@ -1,0 +1,47 @@
+.songs {}
+
+// Form
+.new-song {
+  margin-top: 20px !important;
+}
+
+.new-song__content {}
+.new-song__form {
+  .input-field {
+    margin-top: 10px;
+  }
+  p {
+    margin: 10px 0 6px!important;
+  }
+
+  .tox-statusbar__branding {
+    display: none !important;
+  }
+}
+
+.new-song__form-input {
+  height: 2.5rem !important;
+  border-radius: 7px !important;
+  font-size: 15px !important
+}
+
+// Show
+.song-wrapper {
+  margin-top: 20px;
+}
+
+.song-content__title {
+  font-size: 20px;
+}
+
+.song-content__artist {
+  font-size: 15px;
+}
+
+.song-content__lyrics-and-chords {
+  margin-top: 25px;
+
+  .lyrics-and-chords {
+    display: block;
+  }
+}

@@ -1,16 +1,15 @@
-.song-list {
+.library-list {
   margin: 20px 0;
-  text-align: center;
 }
 
-.song-item__tag {
+.library-item {
   font-size: 13px;
   line-height: 13px;
   font-weight: 500;
-  margin: 0 0 10px 5px;
+  margin-bottom: 10px;
   padding-right: 12px;
   border-radius: 16px;
-  display: inline-block;
+  display: block;
 
   &:hover {
     -webkit-box-shadow: 3px 7px 9px -11px rgba(0,0,0,0.75);
@@ -19,12 +18,13 @@
   }
 }
 
-.song-item__tag-content {
+.library-item__content {
   display: flex;
   align-items: center;
+  padding: 3px;
 }
 
-.song-item__tag-color {
+.library-item__content-color {
   background-color: #fff;
   width: 32px;
   height: 32px;
@@ -43,10 +43,6 @@
   }
 }
 
-.song-list__more {
-  margin-top: 15px;
-
-  a {
-    letter-spacing: 1.3px;
-  }
+.library-item__content-editor {
+  margin: 0 0 0 auto;
 }

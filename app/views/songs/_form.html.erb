@@ -1,0 +1,52 @@
+<div class="new-song">
+  <% if current_url.include?("edit") %>
+    <%= link_to song, class: "chip blue white-text" do %>
+      Preview
+    <% end %>
+  <% end %>
+
+  <div class="card z-depth-0">
+    <div class="new-song__content card-content">
+
+      <%= form_with(model: song, local: true, html: { class: "new-song__form" }) do |form| %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+
+        <div class="input-field">
+          <p>Title</p>
+          <%= form.text_field :title, class: "new-song__form-input form__input", placeholder: "Mission Ready" %>
+        </div>
+
+        <div class="input-field">
+          <p>Artist</p>
+          <%= form.text_field :artist, class: "new-song__form-input form__input", placeholder: "Liveloud" %>
+        </div>
+
+        <div class="input-field">
+          <p>Lyrics and Chords</p>
+          <%= form.text_area :lyrics_and_chords, class: "tinymce" %>
+          <!-- <trix-editor input="song_lyrics_and_chords"></trix-editor> -->
+        </div>
+
+        <div class="actions">
+          <%= form.submit "Save", class: "btn blue z-depth-0 btn-block" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener("turbolinks:load", function() {
+    tinyMCE.init({
+      selector: '.tinymce',
+      height: 500,
+      menubar: false,
+      plugins: 'code',
+       toolbar: 'undo redo | formatselect | ' +
+       ' forecolor | alignleft aligncenter ' +
+       ' alignright alignjustify'
+    });
+  });
+</script>
+    

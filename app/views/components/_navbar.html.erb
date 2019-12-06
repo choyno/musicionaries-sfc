@@ -1,15 +1,13 @@
 <nav class="white">
   <div class="nav-wrapper container">
-    <a href="#" class="brand-logo black-text light">Musicionaries</a>
+    <%= link_to "Musicionaries", root_path, class: "brand-logo black-text light" %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "Logout",  destroy_user_session_path, method: :delete, class: "black-text" %>
-        </li>
+        <li><%= link_to "Add", new_song_path, class: "black-text" %></li>
+        <li><%= link_to "Songs", songs_path, class: "black-text" %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "black-text" %></li>
       <% else %>
-        <li>
-          <%= link_to "Login", new_user_session_path, class: "black-text" %>
-        </li>
+        <li><%= link_to "Login", new_user_session_path, class: "black-text" %></li>
       <% end %>
     </ul>
   </div>

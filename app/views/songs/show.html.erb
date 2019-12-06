@@ -1,0 +1,32 @@
+<% provide(:title, @song.title) %>
+
+<div class="song-wrapper">
+  <%= link_to songs_path, class: "chip blue white-text" do %>
+    Back
+  <% end %>
+
+  <% if @song.user.id == current_user.id %>
+    <%= link_to edit_song_path(@song), class: "chip" do %>
+      Edit
+    <% end %>
+  <% end %>
+
+  <div class="card z-depth-0">
+    <div class="song-content card-content">
+      <div class="song-content song-content__title">
+        <%= @song.title %>
+      </div>
+
+      <div class="song-content song-content__artist grey-text">
+        By: <%= @song.artist %>
+      </div>
+
+      <div class="song-content song-content__lyrics-and-chords">
+        <div class="lyrics-and-chords">
+          <%= raw @song.lyrics_and_chords %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

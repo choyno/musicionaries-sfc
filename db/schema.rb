@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_06_062400) do
+ActiveRecord::Schema.define(version: 2019_12_08_101246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clp_songs", force: :cascade do |t|
+    t.bigint "clp_id"
+    t.bigint "user_id"
+    t.string "songs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clp_id"], name: "index_clp_songs_on_clp_id"
+    t.index ["user_id"], name: "index_clp_songs_on_user_id"
+  end
+
+  create_table "clps", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "sfc_chapter"
+    t.string "theme"
+    t.string "team_leaders"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_clps_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -50,5 +70,8 @@ ActiveRecord::Schema.define(version: 2019_12_06_062400) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "clp_songs", "clps"
+  add_foreign_key "clp_songs", "users"
+  add_foreign_key "clps", "users"
   add_foreign_key "songs", "users"
 end

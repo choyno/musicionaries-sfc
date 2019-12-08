@@ -18,6 +18,7 @@ gem 'material_icons'
 gem 'devise'
 gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.2.4' 
+gem 'jquery-rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

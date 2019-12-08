@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :songs
+  has_many :clps
+  has_many :clp_songs
 end

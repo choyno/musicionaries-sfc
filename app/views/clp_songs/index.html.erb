@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clp Songs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Clp</th>
+      <th>User</th>
+      <th>Songs</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clp_songs.each do |clp_song| %>
+      <tr>
+        <td><%= clp_song.clp %></td>
+        <td><%= clp_song.user %></td>
+        <td><%= clp_song.songs %></td>
+        <td><%= link_to 'Show', clp_song %></td>
+        <td><%= link_to 'Edit', edit_clp_song_path(clp_song) %></td>
+        <td><%= link_to 'Destroy', clp_song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clp Song', new_clp_song_path %>

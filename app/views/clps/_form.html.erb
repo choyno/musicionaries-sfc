@@ -1,0 +1,35 @@
+<div class="new-clp">
+  <% if current_url.include?("edit") %>
+    <%= link_to clp, class: "chip blue white-text" do %>
+      Preview
+    <% end %>
+  <% end %>
+
+  <div class="card z-depth-0">
+    <div class="new-clp__content card-content">
+      <%= form_with(model: clp, local: true, html: { class: "new-clp__form" }) do |form| %>
+
+        <div class="input-field">
+          <p>SFC Chapter</p>
+          <%= form.text_field :sfc_chapter, class: "form__input" %>
+        </div>
+
+        <div class="input-field">
+          <p>Theme</p>
+          <%= form.text_field :theme, class: "form__input" %>
+        </div>
+
+        <div class="input-field">
+          <p>Team Leaders</p>
+          <%= form.text_field :team_leaders, class: "form__input" %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "Save", class: "btn z-depth-0 btn-block" %>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

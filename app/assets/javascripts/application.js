@@ -12,8 +12,11 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require materialize
 //= require_tree .
 //= require tinymce
+//= require components/common
 //= require components/utils/randomColor

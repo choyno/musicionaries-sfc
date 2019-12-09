@@ -16,7 +16,7 @@
         <small class="grey-text">Team Leaders</small>
       </div>
 
-      <small class="grey-text">Created by: <%= clp.user.email %></small>
+      <small class="grey-text">Created by: <%= get_name_from_email(clp.user.email) %></small>
     </div>
   </div>
 <% end %>

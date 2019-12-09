@@ -11,4 +11,8 @@ module ApplicationHelper
   def current_url
     return request.path_info
   end
+
+  def get_name_from_email(email)
+    return email.split("@").first
+  end
 end

@@ -7,6 +7,7 @@ class ClpsController < ApplicationController
   end
 
   def show
+    @clp_contents = @clp.clp_contents.all
   end
 
   def new

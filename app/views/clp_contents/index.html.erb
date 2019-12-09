@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Clp Contents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Clp</th>
+      <th>Talk title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clp_contents.each do |clp_content| %>
+      <tr>
+        <td><%= clp_content.clp %></td>
+        <td><%= clp_content.id %></td>
+        <td><%= clp_content.talk_title %></td>
+        <td><%= link_to 'Show', [@clp] %></td>
+        <td><%= link_to 'Edit', edit_clp_clp_content_path(@clp, clp_content) %></td>
+        <td><%= link_to 'Destroy', [@clp, clp_content], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clp Content', new_clp_clp_content_path(@clp) %>

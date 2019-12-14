@@ -16,9 +16,7 @@
     <ul class="collection with-header">
       <li class="collection-header"><h4>CLP Talks & Songs</h4></li>
       <% @clp_contents.each do |clp_content| %>
-        <li class="collection-item">
-          <%= link_to clp_content.talk_title, clp_clp_content_path(@clp, clp_content), class: "black-text"%>
-        </li>
+        <%= link_to clp_content.talk_title, clp_clp_content_path(@clp, clp_content), class: "black-text collection-item"%>
       <% end %>
     </ul>
     <%= link_to "Add", new_clp_clp_content_path(@clp), class: "chip blue white-text" %>

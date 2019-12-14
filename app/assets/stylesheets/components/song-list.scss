@@ -50,3 +50,27 @@
     letter-spacing: 1.3px;
   }
 }
+
+.song-list__content-form {
+  margin-top: 15px;
+}
+
+.song-list__content-item {
+  position: relative !important;
+  display: inline-block;
+
+  span {
+    margin-right: 15px;
+    padding-left: 25px !important;
+    line-height: 20px !important;
+
+    label {
+      font-size: 15px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+}

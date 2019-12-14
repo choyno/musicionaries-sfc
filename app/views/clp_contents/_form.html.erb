@@ -14,6 +14,18 @@
         <%= form.text_field :talk_title, class: "form__input" %>
       </div>
 
+      <div class="input-field">
+        <p>Select Songs</p>
+        <div class="song-list__content-form">
+          <%= form.collection_check_boxes :song_ids, Song.all, :id, :title do |b| %>
+            <div class="song-list__content-item">
+              <%= b.check_box class: "filled-in"%>
+              <span><%= b.label %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
       <div class="actions">
         <%= form.submit "Save", class: "btn btn-block z-depth-0" %>
       </div>

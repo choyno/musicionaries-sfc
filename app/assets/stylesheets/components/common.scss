@@ -33,3 +33,16 @@ main {
   width: 100%;
   display: block;
 }
+
+.collection {
+  a.collection-item:hover {
+    background-color: transparent !important;
+    color: #2196F3 !important;
+  }
+}
+
+.card {
+  .card-title {
+    margin-bottom: 0 !important;
+  }
+}

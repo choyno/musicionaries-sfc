@@ -22,7 +22,7 @@ class ClpContentsController < ApplicationController
 
     respond_to do |format|
       if @clp_content.save
-        format.html { redirect_to clp_path(@clp), notice: 'Clp content was successfully created.' }
+        format.html { redirect_to clp_clp_content_path(@clp, @clp_content), notice: 'Clp content was successfully created.' }
         format.json { render :show, status: :created, location: @clp_content }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class ClpContentsController < ApplicationController
   def update
     respond_to do |format|
       if @clp_content.update(clp_content_params)
-        format.html { redirect_to clp_clp_contents_path(@clp), notice: 'Clp content was successfully updated.' }
+        format.html { redirect_to clp_clp_content_path(@clp, @clp_content), notice: 'Clp content was successfully updated.' }
         format.json { render :show, status: :ok, location: @clp_content }
       else
         format.html { render :edit }
@@ -61,6 +61,6 @@ class ClpContentsController < ApplicationController
     end
 
     def clp_content_params
-      params.require(:clp_content).permit(:clp_id, :talk_title)
+      params.require(:clp_content).permit(:clp_id, :talk_title, song_ids:[])
     end
 end

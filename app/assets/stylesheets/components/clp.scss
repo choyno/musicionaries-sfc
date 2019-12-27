@@ -1,14 +1,32 @@
-.clp-info {}
+.clp-info {
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .clp-details {
   .card-title.clp-details--title {
     line-height: 20px !important;
     margin-bottom: 15px !important;
+  }
+
+  @media (max-width: 768px) {
+    order: 2;
   }
 }
 
 .clp-songs {
   .collection-item {
     padding-left: 22px !important;
+  }
+
+  @media (max-width: 768px) {
+    .chip {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
   }
 }
 

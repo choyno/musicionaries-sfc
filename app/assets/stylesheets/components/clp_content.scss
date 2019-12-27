@@ -3,3 +3,19 @@
     margin-bottom: 0 !important;
   }
 }
+
+.clp_content--talk {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.clp_content--talk-songs {
+  .talk-song-list {
+    display: flex;
+  }
+}

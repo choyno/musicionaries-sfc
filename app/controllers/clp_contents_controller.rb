@@ -1,7 +1,7 @@
 class ClpContentsController < ApplicationController
   before_action :get_clp
   before_action :set_clp_content, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @clp_contents = @clp.clp_contents
@@ -58,6 +58,8 @@ class ClpContentsController < ApplicationController
 
     def set_clp_content
       @clp_content = @clp.clp_contents.find(params[:id])
+      @clp_songs = @clp_content.song
+      @song_titles = @clp_content.song_titles
     end
 
     def clp_content_params

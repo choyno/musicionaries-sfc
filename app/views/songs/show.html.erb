@@ -1,11 +1,11 @@
-<% provide(:title, @song.title) %>
+<% provide(:title, format_text_title(@song.title)) %>
 
 <div class="song-wrapper">
   <%= link_to songs_path, class: "chip blue white-text" do %>
     Songs
   <% end %>
 
-  <% if @song.user.id == current_user.id %>
+  <% if current_user && @song.user.id == current_user.id %>
     <%= link_to edit_song_path(@song), class: "chip" do %>
       Edit
     <% end %>

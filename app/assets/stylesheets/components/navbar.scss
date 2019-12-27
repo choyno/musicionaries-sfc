@@ -15,5 +15,5 @@
 .navbar-dropdown {
   top: 66px !important;
   width: 200px !important;
-  left: 790px !important;
+  left: calc(100% - 200px) !important;
 }

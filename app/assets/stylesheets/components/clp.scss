@@ -33,3 +33,12 @@
 .clp-data {
   margin: 30px auto;
 }
+
+.clp-detail-item {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: #000;
+  } 
+}

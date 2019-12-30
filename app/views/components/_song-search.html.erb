@@ -1,11 +1,14 @@
 <div class="song-search">
   <div class="card z-depth-0">
     <div class="card-content">
-      <form class="row">
+      <%= form_tag(songs_path, method: :get, class: "row") do %>
         <div class="input-field col s12">
-          <input type="text" class="song-search__input form__input" placeholder="Mission Ready">
+          <%= text_field_tag(:search, params[:search], class: "song-search__input form__input", placeholder: "Mission Ready") %>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
+  <% if params[:search] %>
+    <span class="song-search-result-total grey-text">Results Found: <%= @songs.size %></span>
+  <% end %>
 </div>

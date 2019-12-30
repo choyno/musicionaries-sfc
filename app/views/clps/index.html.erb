@@ -1,4 +1,4 @@
-<% provide(:title, format_text_title("CLP's")) %>
+<% provide(:title, escape_special_character("CLP's")) %>
 
 <% if @clps.count > 0 %>
   <div class="row">

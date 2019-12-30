@@ -5,15 +5,18 @@
   <% end %>
 <% end %>
 
-<div class="card z-depth-0">
-  <div class="card-content">
-    <%= form_with(model: [@clp, clp_content], local: true) do |form| %>
-
+<%= form_with(model: [@clp, clp_content], local: true) do |form| %>
+  <div class="card z-depth-0">
+    <div class="card-content">
       <div class="input-field">
         <p>Talk Title</p>
         <%= form.text_field :talk_title, class: "form__input" %>
       </div>
+    </div>
+  </div>
 
+  <div class="card z-depth-0">
+    <div class="card-content">
       <div class="input-field">
         <p>Select Songs</p>
         <div class="song-list__content-form">
@@ -25,10 +28,8 @@
           <% end %>
         </div>
       </div>
-
-      <div class="actions">
-        <%= form.submit "Save", class: "btn btn-block z-depth-0" %>
-      </div>
-    <% end %>
-  </div>
-</div>
+    </div>
+  </div> 
+  
+  <%= form.submit "Save", class: "btn btn-block z-depth-0" %>
+<% end %>

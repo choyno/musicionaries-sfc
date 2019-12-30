@@ -4,4 +4,8 @@ class Song < ApplicationRecord
 
   extend FriendlyId
   friendly_id :title, use: :slugged
+
+  def self.search(search)
+    search.nil? ? self.all : self.where("title LIKE '%#{search}%'")
+  end
 end

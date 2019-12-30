@@ -46,7 +46,7 @@ class ClpContentsController < ApplicationController
   def destroy
     @clp_content.destroy
     respond_to do |format|
-      format.html { redirect_to clp_clp_contents_path(@clp), notice: 'Clp content was successfully destroyed.' }
+      format.html { redirect_to clp_path(@clp), notice: 'Clp content was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

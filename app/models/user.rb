@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_many :songs
   has_many :clps
   has_many :clp_songs
+
+  def admin?
+    self.user_type == 101
+  end
+
+  def super_admin?
+    self.user_type == 1001
+  end
 end

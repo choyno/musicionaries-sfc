@@ -1,3 +1,9 @@
+.library {
+  .song-search {
+    margin: 50px auto 60px;
+  }
+}
+
 .library-list {
   margin: 20px 0;
 }
@@ -22,6 +28,11 @@
   display: flex;
   align-items: center;
   padding: 3px;
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .library-item__content-color {
@@ -43,6 +54,17 @@
   }
 }
 
+.library-item__content-title {
+  @media (max-width: 768px) {
+    text-align: center;
+    margin: 0 auto !important;
+  }
+}
+
 .library-item__content-editor {
-  margin: 0 0 0 auto;
+  margin: 0 0 0 auto !important;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }

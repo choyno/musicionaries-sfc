@@ -4,8 +4,6 @@ module ApplicationHelper
     if page_title.empty?
       base_title
     else
-      p page_title
-
       "#{page_title} | #{base_title}"
     end
   end
@@ -27,7 +25,18 @@ module ApplicationHelper
     return text
   end
 
-  def format_text_title(title)
-    return title.gsub(/[^0-9A-Za-z]/, '')
+  def escape_special_character(text)
+    return text.gsub(/[^0-9A-Za-z]/, ' ')
+  end
+
+  def toastr_flash_class(type)
+    case type
+    when "alert"
+      "toastr.error"
+    when "notice"
+      "toastr.success"
+    else
+      "toastr.info"
+    end
   end
 end

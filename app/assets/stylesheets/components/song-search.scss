@@ -24,4 +24,8 @@
   .col {
     padding: 0 !important;
   }
+
+  @media (max-width: 768px) {
+    margin: 30px auto 40px;
+  }
 }

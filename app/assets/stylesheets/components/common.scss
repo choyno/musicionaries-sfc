@@ -50,3 +50,17 @@ main {
     margin-bottom: 0 !important;
   }
 }
+
+.toast {
+  &.toast-success {
+    background-color: #33691e !important;
+  }
+
+  &.toast-error {
+    background-color: #e53935 !important;
+  }
+}
+
+.nav-admin {
+  border-top: 2px solid #2196F3;
+}

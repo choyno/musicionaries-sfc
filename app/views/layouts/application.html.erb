@@ -11,6 +11,12 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %> grey lighten-5">
+    <%= content_tag(:script) do %>
+      <% flash.each do |type, message| %>
+        <%= toastr_flash_class("#{type}") %>('<%= message %>')
+      <% end %>
+    <% end %>
+
     <% if current_url.include?("sign_in") || current_url.include?("sign_up") %>
     <% else %>
       <%= render "components/navbar" %>
@@ -20,6 +26,7 @@
       <%= yield %>
     </main>
     
+    <a class="js-scroll-top scroll-top"></a>
     <%= render "components/footer" %>
   </body>
 </html>

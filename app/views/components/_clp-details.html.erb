@@ -18,5 +18,10 @@
 
       <small class="grey-text">Created by: <%= get_name_from_email(clp.user.email) %></small>
     </div>
+    <% if current_user.admin? %>
+      <div class="card-action">
+        <%= link_to "Delete", clp, method: :delete, data: { confirm: 'Are you sure?' }, class: "red-text" %>
+      </div>
+    <% end %>
   </div>
 <% end %>

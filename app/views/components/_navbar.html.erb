@@ -1,6 +1,7 @@
 <nav class="white">
   <div class="nav-wrapper container">
-    <%= link_to "Musicionaries", root_path, class: "brand-logo black-text light" %>
+    <%= link_to "Musicionaries", root_path, class: "brand-logo light #{current_user.admin? ? 'blue-text' : 'black-text'}" %>
+    <a href="#" data-target="slide-out" class="sidenav-trigger blue-text"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile navbar-list" class="right hide-on-med-and-down">
       <% if user_signed_in? %>
         <li class="navbar-item"><%= link_to "CLP", clps_path, class: "black-text navbar-link" %></li>
@@ -16,9 +17,28 @@
     </ul>
   </div>
 </nav>
+
+<!-- Dropdown Content -->
 <ul id="dropdown1" class="navbar-dropdown dropdown-content">
   <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
-  <li class="navbar-item"><%= link_to "Add Songs for CLP", new_song_path, class: "black-text navbar-link" %></li>
+  <li class="navbar-item"><%= link_to "Add CLP", new_clp_path, class: "black-text navbar-link" %></li>
   <li class="divider"></li>
   <li class="navbar-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "black-text navbar-link" %></li>
 </ul>
+<!-- Dropdown Content -->
+
+<!-- Side Nav on SP -->
+<ul id="slide-out" class="sidenav">
+  <% if user_signed_in? %>
+    <li class="navbar-item"><%= link_to "CLP", clps_path, class: "black-text navbar-link" %></li>
+    <li class="navbar-item"><%= link_to "Songs", songs_path, class: "black-text navbar-link" %></li>
+    <li class="divider"></li>
+    <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
+    <li class="navbar-item"><%= link_to "Add CLP", new_clp_path, class: "black-text navbar-link" %></li>
+    <li class="divider"></li>
+    <li class="navbar-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "black-text navbar-link" %></li>
+  <% else %>
+    <li class="navbar-item"><%= link_to "Login", new_user_session_path, class: "black-text navbar-link" %></li>
+  <% end %>
+</ul>
+<!-- Side Nav on SP -->

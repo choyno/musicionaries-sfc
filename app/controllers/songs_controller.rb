@@ -1,9 +1,13 @@
 class SongsController < ApplicationController
   before_action :set_song, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
-    @songs = Song.all
+    if params[:search]
+      @songs = Song.search(params[:search])
+    else
+      @songs = Song.all
+    end
   end
 
   def show
@@ -56,6 +60,6 @@ class SongsController < ApplicationController
     end
 
     def song_params
-      params.require(:song).permit(:user_id, :title, :artist, :lyrics_and_chords)
+      params.require(:song).permit(:user_id, :title, :artist, :lyrics_and_chords, :search)
     end
 end

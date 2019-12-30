@@ -18,5 +18,7 @@
 //= require materialize
 //= require_tree .
 //= require tinymce
+//= require toastr
 //= require components/common
 //= require components/utils/randomColor
+//= require components/scrollTop

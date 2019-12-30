@@ -18,7 +18,9 @@
       <% @clp_contents.each do |clp_content| %>
         <li class="collection-item clp-detail-item">
           <%= link_to clp_content.talk_title, clp_clp_content_path(@clp, clp_content), class: "black-text clp-detail-item-text" %>
-          <%= link_to 'Delete', [@clp, clp_content], method: :delete, data: { confirm: 'Are you sure?' }, class: "clp-detail-item-action" %>
+          <% if current_user && current_user.admin? %>
+            <%= link_to 'Delete', [@clp, clp_content], method: :delete, data: { confirm: 'Are you sure?' }, class: "clp-detail-item-action" %>
+          <% end %>
         </li>
       <% end %>
     </ul>

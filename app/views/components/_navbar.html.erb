@@ -1,6 +1,6 @@
 <nav class="white">
   <div class="nav-wrapper container">
-    <%= link_to "Musicionaries", root_path, class: "brand-logo light #{current_user.admin? ? 'blue-text' : 'black-text'}" %>
+    <%= link_to "Musicionaries", root_path, class: "brand-logo light #{current_user && current_user.admin? ? 'blue-text' : 'black-text'}" %>
     <a href="#" data-target="slide-out" class="sidenav-trigger blue-text"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile navbar-list" class="right hide-on-med-and-down">
       <% if user_signed_in? %>

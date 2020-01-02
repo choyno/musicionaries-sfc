@@ -20,7 +20,9 @@
 
 <!-- Dropdown Content -->
 <ul id="dropdown1" class="navbar-dropdown dropdown-content">
-  <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
+  <% if current_user && current_user.admin? %>
+    <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
+  <% end %>
   <li class="navbar-item"><%= link_to "Add CLP", new_clp_path, class: "black-text navbar-link" %></li>
   <li class="divider"></li>
   <li class="navbar-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "black-text navbar-link" %></li>
@@ -33,7 +35,9 @@
   <li class="navbar-item"><%= link_to "Songs", songs_path, class: "black-text navbar-link" %></li>
   <li class="divider"></li>
   <% if user_signed_in? %>
-    <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
+    <% if current_user && current_user.admin? %>
+      <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
+    <% end %>
     <li class="navbar-item"><%= link_to "Add CLP", new_clp_path, class: "black-text navbar-link" %></li>
     <li class="divider"></li>
     <li class="navbar-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "black-text navbar-link" %></li>

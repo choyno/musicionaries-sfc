@@ -1,6 +1,6 @@
-class ClpsController < ApplicationController
+  class ClpsController < ApplicationController
   before_action :set_clp, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @clps = Clp.all

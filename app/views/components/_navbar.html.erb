@@ -3,9 +3,9 @@
     <%= link_to "Musicionaries", root_path, class: "brand-logo light #{current_user && current_user.admin? ? 'blue-text' : 'black-text'}" %>
     <a href="#" data-target="slide-out" class="sidenav-trigger blue-text"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile navbar-list" class="right hide-on-med-and-down">
+      <li class="navbar-item"><%= link_to "CLP", clps_path, class: "black-text navbar-link" %></li>
+      <li class="navbar-item"><%= link_to "Songs", songs_path, class: "black-text navbar-link" %></li>
       <% if user_signed_in? %>
-        <li class="navbar-item"><%= link_to "CLP", clps_path, class: "black-text navbar-link" %></li>
-        <li class="navbar-item"><%= link_to "Songs", songs_path, class: "black-text navbar-link" %></li>
         <li>
           <a class="dropdown-trigger black-text navbar-link" href="#!" data-target="dropdown1">
             Settings<i class="material-icons right">arrow_drop_down</i>
@@ -29,10 +29,10 @@
 
 <!-- Side Nav on SP -->
 <ul id="slide-out" class="sidenav">
+  <li class="navbar-item"><%= link_to "CLP", clps_path, class: "black-text navbar-link" %></li>
+  <li class="navbar-item"><%= link_to "Songs", songs_path, class: "black-text navbar-link" %></li>
+  <li class="divider"></li>
   <% if user_signed_in? %>
-    <li class="navbar-item"><%= link_to "CLP", clps_path, class: "black-text navbar-link" %></li>
-    <li class="navbar-item"><%= link_to "Songs", songs_path, class: "black-text navbar-link" %></li>
-    <li class="divider"></li>
     <li class="navbar-item"><%= link_to "Add Song", new_song_path, class: "black-text navbar-link" %></li>
     <li class="navbar-item"><%= link_to "Add CLP", new_clp_path, class: "black-text navbar-link" %></li>
     <li class="divider"></li>

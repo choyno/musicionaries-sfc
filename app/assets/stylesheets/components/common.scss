@@ -64,3 +64,28 @@ main {
 .nav-admin {
   border-top: 2px solid #2196F3;
 }
+
+.nested_fields {
+  padding: 0;
+  border: none;
+  margin: 0 0 10px;
+
+  .nested_fields--link {
+    position: relative;
+    height: 25px;
+    width: 100%;
+  }
+
+  .remove_nested_fields_link {
+    position: absolute;
+    right: 0;
+  }
+
+  select {
+    display: block;
+  }
+}
+
+.nested_fields--add-link {
+  margin-top: 20px;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_30_100527) do
+ActiveRecord::Schema.define(version: 2020_01_08_034652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2019_12_30_100527) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "song_assigns", force: :cascade do |t|
+    t.bigint "clp_content_id"
+    t.bigint "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clp_content_id"], name: "index_song_assigns_on_clp_content_id"
+    t.index ["song_id"], name: "index_song_assigns_on_song_id"
+  end
+
   create_table "songs", force: :cascade do |t|
     t.bigint "user_id"
     t.string "title"
@@ -76,5 +85,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_100527) do
 
   add_foreign_key "clp_contents", "clps"
   add_foreign_key "clps", "users"
+  add_foreign_key "song_assigns", "clp_contents"
+  add_foreign_key "song_assigns", "songs"
   add_foreign_key "songs", "users"
 end

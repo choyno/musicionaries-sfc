@@ -1,5 +1,5 @@
 class ClpContentsController < ApplicationController
-  before_action :get_clp
+  before_action :get_clp, :get_songs
   before_action :set_clp_content, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
 
@@ -12,6 +12,7 @@ class ClpContentsController < ApplicationController
 
   def new
     @clp_content = @clp.clp_contents.build
+    @clp_content.song_assigns.build
   end
 
   def edit
@@ -56,13 +57,16 @@ class ClpContentsController < ApplicationController
       @clp = Clp.find(params[:clp_id])
     end
 
+    def get_songs
+      @songs = Song.all.order(:title)
+    end
+
     def set_clp_content
       @clp_content = @clp.clp_contents.find(params[:id])
-      @clp_songs = @clp_content.song
-      @song_titles = @clp_content.song_titles
+      @clp_songs = @clp_content.assigned_songs
     end
 
     def clp_content_params
-      params.require(:clp_content).permit(:clp_id, :talk_title, song_ids:[])
+      params.require(:clp_content).permit(:clp_id, :talk_title, song_assigns_attributes:[:song_id, :_destroy, :id])
     end
 end

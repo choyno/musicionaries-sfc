@@ -1,6 +1,7 @@
 $(document).on('ready turbolinks:load', function() {
   $(".dropdown-trigger").dropdown();
   $('.sidenav').sidenav();
+  // $('select').formSelect();
   
   toastr.options = {
     "closeButton": false,

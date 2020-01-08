@@ -74,3 +74,19 @@
   }
 
 }
+
+.song-list__select {
+  margin: 0 !important;
+
+  label {
+    left: 0 !important;
+  }
+
+  .selected {
+    background-color: rgba(0, 0, 0, 0.01) !important;
+  }
+
+  .dropdown-content li:hover {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+  }
+}

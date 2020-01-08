@@ -17,19 +17,20 @@
 
   <div class="card z-depth-0">
     <div class="card-content">
-      <div class="input-field">
+      <div class="input-field col s12 song-list__select">
         <p>Select Songs</p>
-        <div class="song-list__content-form">
-          <%= form.collection_check_boxes :song_ids, Song.all, :id, :title do |b| %>
-            <div class="song-list__content-item">
-              <%= b.check_box class: "filled-in"%>
-              <span><%= b.label %></span>
-            </div>
-          <% end %>
+        <%= form.nested_fields_for :song_assigns do |f| %>
+          <div class="nested_fields--link">
+            <%= f.remove_nested_fields_link 'Remove', data: { confirm: 'Really?' } %>
+          </div>
+          <%= f.collection_select :song_id, Song.all, :id, :title %>
+        <% end %>
+        <div class="nested_fields--add-link">
+          <%= form.add_nested_fields_link :song_assigns, 'Add Song' %>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
   
   <%= form.submit "Save", class: "btn btn-block z-depth-0" %>
 <% end %>

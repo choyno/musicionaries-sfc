@@ -20,6 +20,7 @@ gem 'tinymce-rails'
 gem 'friendly_id', '~> 5.2.4' 
 gem 'jquery-rails'
 gem 'toastr-rails'
+gem 'nested_form_fields'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

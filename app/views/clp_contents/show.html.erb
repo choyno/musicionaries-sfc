@@ -4,7 +4,7 @@
   <%= link_to clp_path(@clp), class: "chip blue white-text" do %>
     Back
   <% end %>
-  <% if current_user && @clp.user_id == current_user.id %>
+  <% if current_user && @clp.user_id == current_user.id || current_user && current_user.admin? %>
     <%= link_to edit_clp_clp_content_path(@clp, @clp_content), class: "chip" do %>
       Edit
     <% end %>
@@ -17,7 +17,8 @@
         </div>
         <div class="clp_content--talk-songs">
           <ul class="talk-song-list">
-            <% @song_titles.each do |title| %>
+            <% @clp_songs.each do |as| %>
+              <% title = as.song.title %>
               <li class="talk-song-item">
                 <%= link_to title, "##{anchor_text(title)}", class: "talk-song-item-link white chip blue-text" %>
               </li>
@@ -28,13 +29,13 @@
     </div>
   </div>
 
-  <% @clp_songs.each do |song| %>
-    <div class="card z-depth-0" id="<%= anchor_text(song.title) %>">
+  <% @clp_songs.each do |as| %>
+    <div class="card z-depth-0" id="<%= anchor_text(as.song.title) %>">
       <div class="card-content">
-        <span class="card-title"><strong><%= song.title %></strong></span>
-        <p class="grey-text"><%= song.artist %></p>
+        <span class="card-title"><strong><%= as.song.title %></strong></span>
+        <p class="grey-text"><%= as.song.artist %></p>
         <div class="display-song">
-          <%= raw song.lyrics_and_chords %>
+          <%= raw as.song.lyrics_and_chords %>
         </div>
       </div>
     </div>

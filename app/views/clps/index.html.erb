@@ -3,7 +3,7 @@
 <% if @clps.count > 0 %>
   <div class="row">
     <% @clps.each do |clp| %>
-      <div class="col s12 m4">
+      <div class="col s12 m12 l4">
         <%= render partial: "components/clp-details", locals: { clp: clp } %>
       </div>
     <% end %>

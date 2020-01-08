@@ -1,4 +1,4 @@
-$(document).on('ready turbolinks:before-visit', function() {
+$(document).on('ready turbolinks:load', function() {
   $(".dropdown-trigger").dropdown();
   
   toastr.options = {
@@ -18,14 +18,18 @@ $(document).on('ready turbolinks:before-visit', function() {
 })
 
 // Necessary for SideNav
-document.addEventListener('turbolinks:load', function() {
-  elem = document.querySelector('#slide-out');
-  instance = new M.Sidenav(elem, {});
-});
-document.addEventListener('turbolinks:before-visit', function() {
-  elem = document.querySelector('#slide-out');
-  instance = M.Sidenav.getInstance(elem);
-  if (instance){
-    instance.destroy();
-  }
-});
+let screenSize = window.innerWidth;
+if (screenSize <= 768) {
+  document.addEventListener('turbolinks:load', function() {
+    slideOut = document.querySelector('#slide-out');
+    slideOutInstance = new M.Sidenav(slideOut, {});
+  });
+
+  document.addEventListener('turbolinks:before-visit', function() {
+    slideOut = document.querySelector('#slide-out');
+    slideOutInstance = M.Sidenav.getInstance(slideOut);
+    if (slideOutInstance){
+      slideOutInstance.destroy();
+    }
+  });
+}

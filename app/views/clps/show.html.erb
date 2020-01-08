@@ -1,7 +1,7 @@
 <% provide(:title, escape_special_character(@clp.theme)) %>
 
 <div class="clp-info row">
-  <div class="clp-details col s12 m4">
+  <div class="clp-details col s12 m12 l4">
     <%= render partial: "components/clp-details", locals: { clp: @clp } %>
     <%= link_to clps_path, class: "chip blue white-text" do %>
       All CLP
@@ -12,7 +12,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="clp-songs col s12 m8">
+  <div class="clp-songs col s12 m12 l8">
     <ul class="collection with-header">
       <li class="collection-header"><h4>CLP Talks & Songs</h4></li>
       <% @clp_contents.each do |clp_content| %>

@@ -38,4 +38,18 @@
     opacity: 1;
     visibility: visible;
   }
+
+  @media (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+    bottom: 15px;
+    right: 15px;
+
+    &::after {
+      height: 13px;
+      width: 13px;
+      border-left: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+    }
+  }
 }

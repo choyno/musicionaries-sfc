@@ -23,7 +23,7 @@
           <div class="nested_fields--link">
             <%= f.remove_nested_fields_link 'Remove', data: { confirm: 'Really?' } %>
           </div>
-          <%= f.collection_select :song_id, Song.all, :id, :title %>
+          <%= f.collection_select :song_id, Song.all.order(:title), :id, :title %>
         <% end %>
         <div class="nested_fields--add-link">
           <%= form.add_nested_fields_link :song_assigns, 'Add Song' %>

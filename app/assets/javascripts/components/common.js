@@ -1,7 +1,5 @@
-$(document).on('ready turbolinks:load', function() {
+$(document).on('ready turbolinks:before-visit', function() {
   $(".dropdown-trigger").dropdown();
-  $('.sidenav').sidenav();
-  // $('select').formSelect();
   
   toastr.options = {
     "closeButton": false,
@@ -18,3 +16,16 @@ $(document).on('ready turbolinks:load', function() {
     "hideMethod": "fadeOut"
   }
 })
+
+// Necessary for SideNav
+document.addEventListener('turbolinks:load', function() {
+  elem = document.querySelector('#slide-out');
+  instance = new M.Sidenav(elem, {});
+});
+document.addEventListener('turbolinks:before-visit', function() {
+  elem = document.querySelector('#slide-out');
+  instance = M.Sidenav.getInstance(elem);
+  if (instance){
+    instance.destroy();
+  }
+});

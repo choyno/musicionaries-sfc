@@ -18,7 +18,7 @@ $(document).on('ready turbolinks:load', function() {
 })
 
 // Necessary for SideNav
-let screenSize = window.innerWidth;
+screenSize = window.innerWidth;
 if (screenSize <= 768) {
   document.addEventListener('turbolinks:load', function() {
     slideOut = document.querySelector('#slide-out');

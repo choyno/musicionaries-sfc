@@ -7,6 +7,7 @@ class Song < ApplicationRecord
   friendly_id :title, use: :slugged
 
   def self.search(search)
-    search.nil? ? self.all : self.where("title LIKE '%#{search}%'")
+    search.nil? ? self.all : self.where("lower(title) LIKE '%#{search}%'")
+    # search.nil? ? self.all : self.where("title LIKE '%#{search}%'")
   end
 end
